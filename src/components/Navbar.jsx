@@ -93,7 +93,10 @@ function Navbar() {
           onClose={handleDrawerToggle}
           PaperProps={{
             sx: {
-              backgroundColor: "rgb(25, 55, 109)",
+              background:
+                "linear-gradient(90deg, rgba(35, 65, 100, 0.9) 0%, rgba(25, 55, 109, 1) 100%)",
+              borderTopLeftRadius: 10,
+              borderBottomLeftRadius: 10,
             },
           }}
         >
