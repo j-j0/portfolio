@@ -1,7 +1,8 @@
 import React from "react";
-import { Typography, Box, Avatar, useMediaQuery } from "@mui/material";
-import "../vars.css";
+import { Typography, Box, useMediaQuery, Avatar } from "@mui/material";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
+import WorkIcon from "@mui/icons-material/Work";
+import "../vars.css";
 
 const Experience = () => {
   const isMobile = useMediaQuery("(max-width:600px)");
@@ -28,8 +29,94 @@ const Experience = () => {
           Experience
         </Typography>
         <Box
-          className="experience-main"
+          display="flex"
+          flexDirection={isMobile ? "column" : "row"}
+          alignItems="center"
+          justifyContent="flex-start"
           mt={2}
+          mb={4}
+          sx={{
+            padding: 2,
+            borderRadius: "15px",
+            background: "#19376d",
+            background:
+              "linear-gradient(90deg, #19376d 0%, rgba(25, 55, 109, 0) 100%)",
+            borderRadius: "10px",
+          }}
+        >
+          <Avatar
+            alt="Quick-site Guru"
+            src={require("../pictures/quicksite_guru_logo.jpeg")}
+            className="quicksite"
+            sx={{
+              width: isMobile ? 150 : 100,
+              height: isMobile ? 150 : 100,
+              margin: isMobile ? "30px auto 0" : "30",
+              marginRight: "30px",
+            }}
+          />
+          <Box>
+            <Typography
+              variant="h5"
+              component="div"
+              sx={{
+                color: "var(--color-text)",
+                fontWeight: 500,
+              }}
+            >
+              Web Development Intern at QuickSite Guru
+            </Typography>
+            <Typography
+              variant="subtitle1"
+              component="div"
+              sx={{
+                color: "grey",
+                fontWeight: 300,
+                marginBottom: 1,
+              }}
+            >
+              May 2024 to Present
+            </Typography>
+            <ul>
+              <li>
+                <Typography
+                  variant="body1"
+                  component="div"
+                  sx={{
+                    color: "var(--color-text)",
+                  }}
+                >
+                  Developed web pages using React, JavaScript, HTML, and CSS.
+                </Typography>
+              </li>
+              <li>
+                <Typography
+                  variant="body1"
+                  component="div"
+                  sx={{
+                    color: "var(--color-text)",
+                  }}
+                >
+                  Learned from a mentor to improve coding skills and best
+                  practices.
+                </Typography>
+              </li>
+              <li>
+                <Typography
+                  variant="body1"
+                  component="div"
+                  sx={{
+                    color: "var(--color-text)",
+                  }}
+                >
+                  Assisted in hosting and deploying websites.
+                </Typography>
+              </li>
+            </ul>
+          </Box>
+        </Box>
+        <Box
+          className="experience-main"
           display="flex"
           alignItems="center"
           justifyContent="space-between"
@@ -54,10 +141,12 @@ const Experience = () => {
             <Typography
               variant="h4"
               className="Front-end-title"
-              fontWeight={300}
+              fontWeight={500}
               component="div"
               sx={{
                 color: "lightgrey",
+                paddingLeft: isMobile ? 4 : 0,
+                pt: isMobile ? 3 : 2,
               }}
             >
               Frontend development
@@ -66,6 +155,8 @@ const Experience = () => {
               display="flex"
               flexDirection="row"
               justifyContent="center"
+              alignItems="center"
+              pl={isMobile ? 2 : 0}
               flexWrap="wrap"
             >
               {[
@@ -114,10 +205,12 @@ const Experience = () => {
             <Typography
               variant="h4"
               className="Front-end-title"
-              fontWeight={300}
+              fontWeight={500}
               component="div"
               sx={{
                 color: "lightgrey",
+                paddingLeft: isMobile ? 5 : 0,
+                pt: isMobile ? 3 : 2,
               }}
             >
               Backend development
@@ -127,6 +220,7 @@ const Experience = () => {
               flexDirection="row"
               justifyContent="center"
               flexWrap="wrap"
+              pl={isMobile ? 2 : 0}
             >
               {["Java", "SQL", "Express Js", "Node Js", "Rust", "MongoDb"].map(
                 (item, index) => (

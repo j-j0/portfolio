@@ -36,6 +36,7 @@ function Hero() {
           gap={isMobile ? 2 : 0}
           zIndex="1"
           mb={isMobile ? 2 : 0}
+          mr={2}
         >
           <Box
             sx={{
@@ -80,15 +81,15 @@ function Hero() {
               color: "var(--color-text)",
             }}
           >
-            Hi, I'm John Doe
+            Hi, I'm Jack
           </Typography>
           <Typography
             variant="h5"
             className="hero-subtitle"
             sx={{ color: "var(--color-text)" }}
           >
-            I'm a graduate software engineer with 2 years of experience! Reach
-            out if you'd like to earn more!
+            I'm a recent graduate software engineer with 2 years of experience!
+            Reach out if you'd like to earn more!
           </Typography>
           <Button
             sx={{

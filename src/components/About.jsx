@@ -3,14 +3,7 @@ import about1 from "../pictures/about1.jpg";
 import MouseIcon from "@mui/icons-material/Mouse";
 import StorageIcon from "@mui/icons-material/Storage";
 import ColorLensIcon from "@mui/icons-material/ColorLens";
-import {
-  Typography,
-  Box,
-  Button,
-  Avatar,
-  useMediaQuery,
-  rgbToHex,
-} from "@mui/material";
+import { Typography, Box, useMediaQuery } from "@mui/material";
 
 function About() {
   const isMobile = useMediaQuery("(max-width:600px)");
@@ -70,7 +63,23 @@ function About() {
             gap={isMobile ? 2 : 4}
             mb={isMobile ? 2 : 1}
           >
-            <Box display="flex" flexDirection="row" alignItems="center" mr={1}>
+            <Box
+              display="flex"
+              flexDirection="row"
+              alignItems="center"
+              mr={1}
+              sx={{
+                borderRadius: "10px",
+                backgroundImage:
+                  "linear-gradient(90deg, rgba(165, 215, 232, 0.42) 0%, rgba(255, 255, 255, 0) 100%)",
+                backgroundSize: "0 100%",
+                backgroundRepeat: "no-repeat",
+                transition: "background-size 0.4s",
+                "&:hover": {
+                  backgroundSize: "100% 100%",
+                },
+              }}
+            >
               <MouseIcon
                 fontSize="large"
                 sx={{ color: "rgba(16, 167, 240)" }}
@@ -103,10 +112,25 @@ function About() {
                 </Typography>
               </Box>
             </Box>
-            <Box display="flex" flexDirection="row" alignItems="center" sx={{}}>
+            <Box
+              display="flex"
+              flexDirection="row"
+              alignItems="center"
+              sx={{
+                borderRadius: "10px",
+                backgroundImage:
+                  "linear-gradient(90deg, rgba(165, 215, 232, 0.42) 0%, rgba(255, 255, 255, 0) 100%)",
+                backgroundSize: "0 100%",
+                backgroundRepeat: "no-repeat",
+                transition: "background-size 0.4s",
+                "&:hover": {
+                  backgroundSize: "100% 100%",
+                },
+              }}
+              mr={1}
+            >
               <StorageIcon
                 fontSize="large"
-                mr={1}
                 sx={{ color: "rgba(16, 167, 240)" }}
               />
               <Box display="flex" flexDirection="column">
@@ -141,7 +165,17 @@ function About() {
               display="flex"
               flexDirection="row"
               alignItems="center"
-              sx={{}}
+              sx={{
+                borderRadius: "10px",
+                backgroundImage:
+                  "linear-gradient(90deg, rgba(165, 215, 232, 0.42) 0%, rgba(255, 255, 255, 0) 100%)",
+                backgroundSize: "0 100%",
+                backgroundRepeat: "no-repeat",
+                transition: "background-size 0.4s",
+                "&:hover": {
+                  backgroundSize: "100% 100%",
+                },
+              }}
               mr={1}
             >
               <ColorLensIcon
@@ -182,7 +216,5 @@ function About() {
     </section>
   );
 }
-export const getImageUrl = (path) => {
-  return new URL(`/assets/${path}`, import.meta.url).href;
-};
+
 export default About;
