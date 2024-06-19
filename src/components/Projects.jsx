@@ -25,7 +25,7 @@ const Projects = () => {
   ];
 
   return (
-    <section>
+    <section id="projects">
       <Box
         className="Projects"
         sx={{

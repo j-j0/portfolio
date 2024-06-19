@@ -89,9 +89,13 @@ function Hero() {
             sx={{ color: "var(--color-text)" }}
           >
             I'm a recent graduate software engineer with 2 years of experience!
-            Reach out if you'd like to earn more!
+            Reach out if you'd like to learn more!
           </Typography>
           <Button
+            component="a"
+            href="https://www.linkedin.com/in/jack-wang-2177871a4/"
+            target="_blank"
+            rel="noopener noreferrer"
             sx={{
               marginTop: "20px",
               height: "30px",
@@ -102,6 +106,7 @@ function Hero() {
                 backgroundColor: "var(--color-secondary)",
               },
               borderRadius: "12px",
+              textDecoration: "none",
             }}
           >
             Contact me!

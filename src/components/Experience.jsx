@@ -7,7 +7,7 @@ import "../vars.css";
 const Experience = () => {
   const isMobile = useMediaQuery("(max-width:600px)");
   return (
-    <section>
+    <section id="experience">
       <Box
         className="about"
         sx={{

@@ -9,7 +9,7 @@ function About() {
   const isMobile = useMediaQuery("(max-width:600px)");
 
   return (
-    <section>
+    <section id="about">
       <Box
         className="about"
         sx={{

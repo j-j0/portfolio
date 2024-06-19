@@ -7,7 +7,7 @@ import "../vars.css";
 
 const Contact = () => {
   return (
-    <section>
+    <section id="contact">
       <Box
         className="contact"
         sx={{
@@ -40,7 +40,7 @@ const Contact = () => {
         >
           <IconButton
             component="a"
-            href="https://github.com/yourusername"
+            href="https://github.com/j-j0"
             target="_blank"
             sx={{ color: "var(--color-text)" }}
           >
@@ -48,7 +48,7 @@ const Contact = () => {
           </IconButton>
           <IconButton
             component="a"
-            href="https://linkedin.com/in/yourusername"
+            href="https://www.linkedin.com/in/jack-wang-2177871a4/"
             target="_blank"
             sx={{ color: "var(--color-text)" }}
           >
