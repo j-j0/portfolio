@@ -1,7 +1,6 @@
 import React from "react";
 import { Typography, Box, useMediaQuery, Avatar } from "@mui/material";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
-import WorkIcon from "@mui/icons-material/Work";
 import "../vars.css";
 
 const Experience = () => {
@@ -38,10 +37,8 @@ const Experience = () => {
           sx={{
             padding: 2,
             borderRadius: "15px",
-            background: "#19376d",
             background:
               "linear-gradient(90deg, #19376d 0%, rgba(25, 55, 109, 0) 100%)",
-            borderRadius: "10px",
           }}
         >
           <Avatar

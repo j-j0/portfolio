@@ -2,7 +2,6 @@ import React from "react";
 import "./Hero.scss";
 import { Typography, Box, Button, Avatar, useMediaQuery } from "@mui/material";
 import "../vars.css";
-import zIndex from "@mui/material/styles/zIndex";
 
 function Hero() {
   const isMobile = useMediaQuery("(max-width:600px)");
