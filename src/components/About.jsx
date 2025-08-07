@@ -1,11 +1,19 @@
 import React from "react";
 import about1 from "../pictures/about1.jpg";
-import { Code, Storage, Palette } from "@mui/icons-material";
+// Import a new icon for DevOps. Dns is a good one for infrastructure.
+import { Code, Storage, Dns } from "@mui/icons-material";
 import { Typography, Box, Card, CardContent } from "@mui/material";
 
 function About() {
 
+  // Re-ordered and updated the skills array
   const skills = [
+    {
+      // New DevOps entry
+      icon: <Dns sx={{ fontSize: "2rem", color: "var(--color-success)" }} />,
+      title: "DevOps & Cloud",
+      description: "Automating software delivery with CI/CD pipelines, containerization (Docker), and orchestration (Kubernetes). Experienced with Google Cloud and Infrastructure as Code (Terraform)."
+    },
     {
       icon: <Code sx={{ fontSize: "2rem", color: "var(--color-primary)" }} />,
       title: "Frontend Development",
@@ -15,11 +23,6 @@ function About() {
       icon: <Storage sx={{ fontSize: "2rem", color: "var(--color-accent)" }} />,
       title: "Backend Development",
       description: "Developing scalable server-side applications and APIs using various technologies including Node.js, Java, and database management."
-    },
-    {
-      icon: <Palette sx={{ fontSize: "2rem", color: "var(--color-success)" }} />,
-      title: "UI/UX Design",
-      description: "Creating intuitive user interfaces and experiences for web applications, focusing on usability and modern design principles."
     }
   ];
 

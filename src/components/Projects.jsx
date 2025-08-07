@@ -6,12 +6,13 @@ const Projects = () => {
 
   const projects = [
     {
-      title: "E-Commerce Platform",
-      description: "A full-stack e-commerce application built with React and Node.js, featuring user authentication, payment processing, and admin dashboard.",
-      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=250&fit=crop",
-      technologies: ["React", "Node.js", "MongoDB", "Stripe"],
-      github: "https://github.com/j-j0",
-      demo: "https://demo-link.com",
+      title: "Automated Cloud-Native Portfolio",
+      description: "This portfolio website, built with React, is deployed to Google Cloud Platform using a fully automated CI/CD pipeline. It demonstrates expertise in containerization with Docker, orchestration with Kubernetes, Infrastructure as Code with Terraform, and end-to-end automation with GitHub Actions.",
+      // A more fitting image for a DevOps project. Replace with a screenshot of your site or an architecture diagram!
+      image: "https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?w=400&h=250&fit=crop", 
+      technologies: ["Docker", "Kubernetes", "Terraform", "Google Cloud", "GitHub Actions", "React", "Nginx"],
+      github: "https://github.com/j-j0/portfolio", // Make sure this links to your project repository!
+      demo: "http://34.54.179.243", // This is the live IP address from your Ingress!
       featured: true,
     },
     {

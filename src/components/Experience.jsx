@@ -5,22 +5,35 @@ import "../vars.css";
 
 const Experience = () => {
 
-  const frontendSkills = [
-    { name: "HTML", logo: require("../pictures/html.png") },
-    { name: "CSS", logo: require("../pictures/css.png") },
-    { name: "JavaScript", logo: require("../pictures/javascript.svg") },
-    { name: "React", logo: require("../pictures/react.png") },
-    { name: "Material-UI", logo: require("../pictures/material-ui.svg") },
-    { name: "SASS", logo: require("../pictures/sass.svg") }
+
+  const devopsSkills = [
+    { name: "Docker" },
+    { name: "Kubernetes" },
+    { name: "Terraform" },
+    { name: "Google Cloud" },
+    { name: "AWS" },
+    { name: "GitHub Actions" },
+    { name: "Nginx" },
   ];
 
+
+  const frontendSkills = [
+    { name: "HTML" },
+    { name: "CSS" },
+    { name: "JavaScript" },
+    { name: "React" },
+    { name: "Material-UI" },
+    { name: "SASS" }
+  ];
+
+
   const backendSkills = [
-    { name: "Java", logo: require("../pictures/java.png") },
-    { name: "SQL", logo: require("../pictures/sql.svg") },
-    { name: "Express.js", logo: require("../pictures/express.svg") },
-    { name: "Node.js", logo: require("../pictures/node.png") },
-    { name: "Rust", logo: require("../pictures/rust.png") },
-    { name: "MongoDB", logo: require("../pictures/mongodb.png") }
+    { name: "Java" },
+    { name: "SQL" },
+    { name: "Express.js" },
+    { name: "Node.js" },
+    { name: "Rust" },
+    { name: "MongoDB" }
   ];
 
   return (
@@ -138,7 +151,7 @@ const Experience = () => {
                   {[
                     "Developed responsive web applications using React, JavaScript, HTML, and CSS",
                     "Collaborated with senior developers to implement best practices and coding standards",
-                    "Assisted in website deployment and hosting processes"
+                    "Automated application deployment to Google Cloud using Docker, Kubernetes, and CI/CD pipelines",
                   ].map((achievement, index) => (
                     <Box
                       key={index}
@@ -173,79 +186,67 @@ const Experience = () => {
           </CardContent>
         </Card>
 
-        {/* Technical Skills */}
+        {/* Technical Skills Grid */}
         <Box
           sx={{
             display: "grid",
-            gridTemplateColumns: { xs: "1fr", md: "1fr 1fr" },
+            gridTemplateColumns: { xs: "1fr", lg: "1fr 1fr" },
             gap: 4,
           }}
         >
-          {/* Frontend Skills */}
+          {/* DevOps & Cloud Skills */}
           <Card
             sx={{
+              gridColumn: { xs: "span 1", lg: "span 2" },
               backgroundColor: "var(--color-surface)",
               border: "1px solid var(--color-border)",
               borderRadius: "var(--radius-lg)",
               transition: "var(--transition-normal)",
               "&:hover": {
-                borderColor: "var(--color-primary)",
+                borderColor: "var(--color-success)",
                 boxShadow: "var(--shadow-md)",
               },
             }}
           >
             <CardContent sx={{ padding: "2rem" }}>
-              <Typography
-                variant="h5"
-                sx={{
-                  color: "var(--color-text)",
-                  fontWeight: 600,
-                  marginBottom: 3,
-                  textAlign: "center",
-                }}
-              >
+              <Typography variant="h5" sx={{ color: "var(--color-text)", fontWeight: 600, marginBottom: 3, textAlign: "center" }}>
+                DevOps & Cloud
+              </Typography>
+              <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1.5, justifyContent: "center" }}>
+                {devopsSkills.map((skill, index) => (
+                  <Chip
+                    key={index}
+                    label={skill.name}
+                    sx={{
+                      backgroundColor: "var(--color-surface-elevated)", color: "var(--color-text)", border: "1px solid var(--color-border-light)", padding: "0.5rem 1rem",
+                      "&:hover": { backgroundColor: "var(--color-success)", color: "white", transform: "translateY(-2px)", boxShadow: "var(--shadow-sm)" },
+                      transition: "var(--transition-normal)",
+                    }}
+                  />
+                ))}
+              </Box>
+            </CardContent>
+          </Card>
+
+          {/* Frontend Skills */}
+          <Card
+            sx={{
+              backgroundColor: "var(--color-surface)", border: "1px solid var(--color-border)", borderRadius: "var(--radius-lg)", transition: "var(--transition-normal)",
+              "&:hover": { borderColor: "var(--color-primary)", boxShadow: "var(--shadow-md)" },
+            }}
+          >
+            <CardContent sx={{ padding: "2rem" }}>
+              <Typography variant="h5" sx={{ color: "var(--color-text)", fontWeight: 600, marginBottom: 3, textAlign: "center" }}>
                 Frontend Development
               </Typography>
-
-              <Box
-                sx={{
-                  display: "flex",
-                  flexWrap: "wrap",
-                  gap: 1.5,
-                  justifyContent: "center",
-                }}
-              >
+              <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1.5, justifyContent: "center" }}>
                 {frontendSkills.map((skill, index) => (
                   <Chip
                     key={index}
-                    icon={skill.logo ? (
-                      <Box
-                        component="img"
-                        src={skill.logo}
-                        alt={skill.name}
-                        sx={{
-                          width: 20,
-                          height: 20,
-                          objectFit: "contain",
-                        }}
-                      />
-                    ) : undefined}
                     label={skill.name}
                     sx={{
-                      backgroundColor: "var(--color-surface-elevated)",
-                      color: "var(--color-text)",
-                      border: "1px solid var(--color-border-light)",
-                      padding: skill.logo ? "0.5rem 1rem" : "0.5rem 1rem",
-                      "& .MuiChip-icon": {
-                        marginLeft: "8px",
-                        marginRight: "-4px",
-                      },
-                      "&:hover": {
-                        backgroundColor: "var(--color-primary)",
-                        color: "white",
-                        transform: "translateY(-2px)",
-                        boxShadow: "var(--shadow-sm)",
-                      },
+                      backgroundColor: "var(--color-surface-elevated)", color: "var(--color-text)", border: "1px solid var(--color-border-light)", padding: "0.5rem 1rem",
+                      "&:hover": { backgroundColor: "var(--color-primary)", color: "white", transform: "translateY(-2px)", boxShadow: "var(--shadow-sm)" },
                       transition: "var(--transition-normal)",
                     }}
                   />
@@ -257,68 +258,22 @@ const Experience = () => {
           {/* Backend Skills */}
           <Card
             sx={{
-              backgroundColor: "var(--color-surface)",
-              border: "1px solid var(--color-border)",
-              borderRadius: "var(--radius-lg)",
-              transition: "var(--transition-normal)",
-              "&:hover": {
-                borderColor: "var(--color-accent)",
-                boxShadow: "var(--shadow-md)",
-              },
+              backgroundColor: "var(--color-surface)", border: "1px solid var(--color-border)", borderRadius: "var(--radius-lg)", transition: "var(--transition-normal)",
+              "&:hover": { borderColor: "var(--color-accent)", boxShadow: "var(--shadow-md)" },
             }}
           >
             <CardContent sx={{ padding: "2rem" }}>
-              <Typography
-                variant="h5"
-                sx={{
-                  color: "var(--color-text)",
-                  fontWeight: 600,
-                  marginBottom: 3,
-                  textAlign: "center",
-                }}
-              >
+              <Typography variant="h5" sx={{ color: "var(--color-text)", fontWeight: 600, marginBottom: 3, textAlign: "center" }}>
                 Backend Development
               </Typography>
-
-              <Box
-                sx={{
-                  display: "flex",
-                  flexWrap: "wrap",
-                  gap: 1.5,
-                  justifyContent: "center",
-                }}
-              >
+              <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1.5, justifyContent: "center" }}>
                 {backendSkills.map((skill, index) => (
                   <Chip
                     key={index}
-                    icon={skill.logo ? (
-                      <Box
-                        component="img"
-                        src={skill.logo}
-                        alt={skill.name}
-                        sx={{
-                          width: 20,
-                          height: 20,
-                          objectFit: "contain",
-                        }}
-                      />
-                    ) : undefined}
                     label={skill.name}
                     sx={{
-                      backgroundColor: "var(--color-surface-elevated)",
-                      color: "var(--color-text)",
-                      border: "1px solid var(--color-border-light)",
-                      padding: skill.logo ? "0.5rem 1rem" : "0.5rem 1rem",
-                      "& .MuiChip-icon": {
-                        marginLeft: "8px",
-                        marginRight: "-4px",
-                      },
-                      "&:hover": {
-                        backgroundColor: "var(--color-accent)",
-                        color: "white",
-                        transform: "translateY(-2px)",
-                        boxShadow: "var(--shadow-sm)",
-                      },
+                      backgroundColor: "var(--color-surface-elevated)", color: "var(--color-text)", border: "1px solid var(--color-border-light)", padding: "0.5rem 1rem",
+                      "&:hover": { backgroundColor: "var(--color-accent)", color: "white", transform: "translateY(-2px)", boxShadow: "var(--shadow-sm)" },
                       transition: "var(--transition-normal)",
                     }}
                   />
