@@ -100,4 +100,21 @@ health: ## Check if application is responding
 # Quick commands
 quick-start: build up url ## Quick start: build, run, and show URL
 
-.PHONY: help build up up-detached down restart logs logs-tail shell clean clean-all prune build-no-cache rebuild status images dev prod url open docker-build docker-run docker-stop health quick-start
+# Google Cloud commands
+check-registry: ## Check if image exists in Artifact Registry
+	@echo "Checking Artifact Registry for portfolio image..."
+	gcloud artifacts docker images list australia-southeast1-docker.pkg.dev/$(GCP_PROJECT_ID)/portfolio-docker-repo || echo "❌ Repository not found or not authenticated"
+
+pull-from-registry: ## Pull latest image from Artifact Registry
+	docker pull australia-southeast1-docker.pkg.dev/$(GCP_PROJECT_ID)/portfolio-docker-repo/portfolio:latest
+
+test-registry-image: ## Test the image from Artifact Registry
+	docker run -d --name registry-test -p 3001:80 australia-southeast1-docker.pkg.dev/$(GCP_PROJECT_ID)/portfolio-docker-repo/portfolio:latest
+	@echo "Testing registry image at http://localhost:3001"
+	@echo "Run 'make stop-registry-test' when done"
+
+stop-registry-test: ## Stop the registry test container
+	docker stop registry-test || true
+	docker rm registry-test || true
+
+.PHONY: help build up up-detached down restart logs logs-tail shell clean clean-all prune build-no-cache rebuild status images dev prod url open docker-build docker-run docker-stop health quick-start check-registry pull-from-registry test-registry-image stop-registry-test
