@@ -118,7 +118,7 @@ function Hero() {
                 margin: { xs: "0 auto 2rem", md: "0 0 2rem 0" },
               }}
             >
-              Passionate Engineer.
+              Passionate Software Engineer.
               Passionate about creating exceptional user experiences with clean, efficient code.
             </Typography>
 
