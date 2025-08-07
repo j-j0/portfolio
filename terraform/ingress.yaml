@@ -1,0 +1,11 @@
+# ingress.yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: portfolio-ingress
+spec:
+  defaultBackend:
+    service:
+      name: frontend-service # Route all traffic to our service
+      port:
+        number: 80

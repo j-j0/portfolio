@@ -1,0 +1,41 @@
+# deployment.yaml
+# This is the "recipe" that tells Kubernetes how to run our app.
+
+apiVersion: apps/v1
+kind: Deployment # The type of recipe: a Deployment
+
+metadata:
+  name: frontend-deployment # A name for this set of instructions
+
+spec:
+  # How many copies of our application do we want running?
+  # We use 2 for high availability, so if one crashes, the other is still running!
+  replicas: 2 
+
+  # This section tells the Deployment how to find the pods it's supposed to manage.
+  selector:
+    matchLabels:
+      app: frontend # It looks for any pod with the label "app: frontend"
+
+  # This is the template for the pods themselves. It's the blueprint for our running app.
+  template:
+    metadata:
+      # We add the label here so the selector above can find it.
+      labels:
+        app: frontend 
+    spec:
+      containers:
+        # A list of containers to run inside the pod (we only have one).
+      - name: frontend-container # A name for our container
+        
+        # -----------------------------------------------------------------
+        # ▼ ▼ ▼ THIS IS THE MOST IMPORTANT LINE TO EDIT! ▼ ▼ ▼
+        
+        # Tell Kubernetes WHICH Docker image to pull and run.
+        image: australia-southeast1-docker.pkg.dev/deft-stratum-468205-q7/portfolio-docker-repo/portfolio:latest
+        # ▲ ▲ ▲ ▲ ▲ ▲ ▲ ▲ ▲ ▲ ▲ ▲ ▲ ▲ ▲ ▲ ▲ ▲ ▲ ▲ ▲ ▲ ▲ ▲ ▲ ▲ ▲ ▲ ▲ ▲ ▲ ▲ ▲ ▲ ▲
+        # -----------------------------------------------------------------
+
+        # The port inside the container that our Nginx web server is listening on.
+        ports:
+        - containerPort: 80 
