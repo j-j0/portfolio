@@ -1,11 +1,10 @@
 import React from "react";
 import "./Hero.scss";
-import { Typography, Box, Button, Avatar, useMediaQuery, Chip } from "@mui/material";
+import { Typography, Box, Button, Avatar, Chip } from "@mui/material";
 import { ArrowOutward, LocationOn } from "@mui/icons-material";
 import "../vars.css";
 
 function Hero() {
-  const isMobile = useMediaQuery("(max-width: 768px)");
 
   return (
     <section id="hero">

@@ -1,10 +1,9 @@
 import React from "react";
 import about1 from "../pictures/about1.jpg";
 import { Code, Storage, Palette } from "@mui/icons-material";
-import { Typography, Box, useMediaQuery, Card, CardContent } from "@mui/material";
+import { Typography, Box, Card, CardContent } from "@mui/material";
 
 function About() {
-  const isMobile = useMediaQuery("(max-width: 768px)");
 
   const skills = [
     {
@@ -14,7 +13,7 @@ function About() {
     },
     {
       icon: <Storage sx={{ fontSize: "2rem", color: "var(--color-accent)" }} />,
-      title: "Backend Development", 
+      title: "Backend Development",
       description: "Developing scalable server-side applications and APIs using various technologies including Node.js, Java, and database management."
     },
     {
@@ -56,7 +55,7 @@ function About() {
               lineHeight: 1.6,
             }}
           >
-            I'm passionate about creating digital experiences that make a difference. 
+            I'm passionate about creating digital experiences that make a difference.
             Here's what I bring to the table.
           </Typography>
         </Box>

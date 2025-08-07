@@ -1,9 +1,8 @@
 import React from "react";
-import { Box, Typography, useMediaQuery, Button, Card, CardContent, CardMedia, Chip } from "@mui/material";
+import { Box, Typography, Button, Card, CardContent, CardMedia, Chip } from "@mui/material";
 import { GitHub, Launch, Code } from "@mui/icons-material";
 
 const Projects = () => {
-  const isMobile = useMediaQuery("(max-width: 768px)");
 
   const projects = [
     {

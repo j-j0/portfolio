@@ -1,10 +1,9 @@
 import React from "react";
-import { Typography, Box, useMediaQuery, Avatar, Card, CardContent, Chip } from "@mui/material";
+import { Typography, Box, Avatar, Card, CardContent, Chip } from "@mui/material";
 import { Work, CheckCircle } from "@mui/icons-material";
 import "../vars.css";
 
 const Experience = () => {
-  const isMobile = useMediaQuery("(max-width: 768px)");
 
   const frontendSkills = [
     { name: "HTML", logo: require("../pictures/html.png") },

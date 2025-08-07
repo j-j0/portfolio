@@ -1,10 +1,9 @@
 import React from "react";
-import { Typography, Box, IconButton, Button, useMediaQuery } from "@mui/material";
+import { Typography, Box, IconButton, Button } from "@mui/material";
 import { GitHub, LinkedIn, Email, ArrowUpward } from "@mui/icons-material";
 import "../vars.css";
 
 const Contact = () => {
-  const isMobile = useMediaQuery("(max-width: 768px)");
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
