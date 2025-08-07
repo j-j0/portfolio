@@ -1,4 +1,4 @@
-```markdown
+
 # Cloud-Native Portfolio with Automated CI/CD
 
 This isn't just a portfolio website; it's a demonstration of a complete, automated DevOps workflow. The React application serves as the payload for an enterprise-grade delivery system built on Google Cloud Platform, Kubernetes, and Infrastructure as Code.
@@ -126,4 +126,4 @@ npm install
 # Start the dev server
 npm start
 ```
-This will open [http://localhost:3000](http://localhost:3000) with instant updates as you edit the code.```
+This will open [http://localhost:3000](http://localhost:3000) with instant updates as you edit the code.
