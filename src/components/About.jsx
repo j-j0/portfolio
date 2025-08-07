@@ -1,215 +1,177 @@
 import React from "react";
 import about1 from "../pictures/about1.jpg";
-import MouseIcon from "@mui/icons-material/Mouse";
-import StorageIcon from "@mui/icons-material/Storage";
-import ColorLensIcon from "@mui/icons-material/ColorLens";
-import { Typography, Box, useMediaQuery } from "@mui/material";
+import { Code, Storage, Palette } from "@mui/icons-material";
+import { Typography, Box, useMediaQuery, Card, CardContent } from "@mui/material";
 
 function About() {
-  const isMobile = useMediaQuery("(max-width:600px)");
+  const isMobile = useMediaQuery("(max-width: 768px)");
+
+  const skills = [
+    {
+      icon: <Code sx={{ fontSize: "2rem", color: "var(--color-primary)" }} />,
+      title: "Frontend Development",
+      description: "Building responsive and optimized web applications using modern frameworks like React, with expertise in HTML, CSS, and JavaScript."
+    },
+    {
+      icon: <Storage sx={{ fontSize: "2rem", color: "var(--color-accent)" }} />,
+      title: "Backend Development", 
+      description: "Developing scalable server-side applications and APIs using various technologies including Node.js, Java, and database management."
+    },
+    {
+      icon: <Palette sx={{ fontSize: "2rem", color: "var(--color-success)" }} />,
+      title: "UI/UX Design",
+      description: "Creating intuitive user interfaces and experiences for web applications, focusing on usability and modern design principles."
+    }
+  ];
 
   return (
     <section id="about">
       <Box
-        className="about"
         sx={{
-          marginLeft: "10%",
-          marginRight: "10%",
-          marginTop: "43px",
-          padding: 2,
-          backgroundColor: "black",
-          borderRadius: "34px",
+          maxWidth: "1200px",
+          margin: "0 auto",
+          padding: { xs: "4rem 1rem", md: "6rem 2rem" },
         }}
       >
-        <Typography
-          variant="h3"
-          className="hero-title"
-          fontWeight={400}
-          component="div"
+        <Box sx={{ textAlign: "center", marginBottom: 6 }}>
+          <Typography
+            variant="h2"
+            sx={{
+              fontSize: { xs: "2rem", md: "2.5rem" },
+              fontWeight: 700,
+              color: "var(--color-text)",
+              marginBottom: 2,
+              letterSpacing: "-0.025em",
+            }}
+          >
+            About Me
+          </Typography>
+          <Typography
+            variant="body1"
+            sx={{
+              fontSize: "1.125rem",
+              color: "var(--color-text-secondary)",
+              maxWidth: "600px",
+              margin: "0 auto",
+              lineHeight: 1.6,
+            }}
+          >
+            I'm passionate about creating digital experiences that make a difference. 
+            Here's what I bring to the table.
+          </Typography>
+        </Box>
+
+        <Box
           sx={{
-            color: "var(--color-text)",
+            display: "flex",
+            flexDirection: { xs: "column", lg: "row" },
+            gap: 6,
+            alignItems: "center",
           }}
         >
-          About
-        </Typography>
-        <Box
-          className="about-main"
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-          flexDirection={isMobile ? "column" : "row"}
-        >
-          {/* AVATAR */}
+          {/* Profile Image */}
           <Box
-            component="img"
-            alt="about-me-pic"
-            src={about1}
-            flexGrow="1"
             sx={{
-              width: "200px",
-              height: "300px",
-              borderRadius: "400px",
-              mt: isMobile ? 2 : 0,
-              mb: isMobile ? 0 : 0,
-              padding: 5,
-              paddingRight: isMobile ? 4 : 2,
+              flex: { lg: "0 0 300px" },
+              display: "flex",
+              justifyContent: "center",
+              order: { xs: 1, lg: 0 },
             }}
-          />
-          <Box
-            display="flex"
-            flexDirection="column"
-            alignItems="flex-start"
-            flexGrow="1"
-            gap={isMobile ? 2 : 4}
-            mb={isMobile ? 2 : 1}
           >
             <Box
-              display="flex"
-              flexDirection="row"
-              alignItems="center"
-              mr={1}
+              component="img"
+              src={about1}
+              alt="About me"
               sx={{
-                borderRadius: "10px",
-                backgroundImage:
-                  "linear-gradient(90deg, rgba(165, 215, 232, 0.42) 0%, rgba(255, 255, 255, 0) 100%)",
-                backgroundSize: "0 100%",
-                backgroundRepeat: "no-repeat",
-                transition: "background-size 0.4s",
+                width: { xs: 250, md: 300 },
+                height: { xs: 300, md: 360 },
+                borderRadius: "var(--radius-xl)",
+                objectFit: "cover",
+                border: "3px solid var(--color-border)",
+                boxShadow: "var(--shadow-lg)",
+                transition: "var(--transition-normal)",
                 "&:hover": {
-                  backgroundSize: "100% 100%",
+                  transform: "translateY(-4px)",
+                  boxShadow: "var(--shadow-xl)",
                 },
               }}
-            >
-              <MouseIcon
-                fontSize="large"
-                sx={{ color: "rgba(16, 167, 240)" }}
-              />
-              <Box display="flex" flexDirection="column">
-                <Typography
-                  variant="h4"
-                  className="test"
-                  fontWeight={500}
-                  component="div"
-                  borderWidth="5px"
-                  sx={{
-                    color: "var(--color-text)",
-                  }}
-                >
-                  Frontend developer
-                </Typography>
-                <Typography
-                  variant="h5"
-                  className="test"
-                  fontWeight={300}
-                  component="div"
-                  borderWidth="5px"
-                  sx={{
-                    color: "var(--color-text)",
-                  }}
-                >
-                  I'm a front end dev with experience in building responsive and
-                  optimised sites using HTML/CSS, Javascript and React
-                </Typography>
-              </Box>
-            </Box>
-            <Box
-              display="flex"
-              flexDirection="row"
-              alignItems="center"
-              sx={{
-                borderRadius: "10px",
-                backgroundImage:
-                  "linear-gradient(90deg, rgba(165, 215, 232, 0.42) 0%, rgba(255, 255, 255, 0) 100%)",
-                backgroundSize: "0 100%",
-                backgroundRepeat: "no-repeat",
-                transition: "background-size 0.4s",
-                "&:hover": {
-                  backgroundSize: "100% 100%",
-                },
-              }}
-              mr={1}
-            >
-              <StorageIcon
-                fontSize="large"
-                sx={{ color: "rgba(16, 167, 240)" }}
-              />
-              <Box display="flex" flexDirection="column">
-                <Typography
-                  variant="h4"
-                  className="test"
-                  fontWeight={500}
-                  component="div"
-                  borderWidth="5px"
-                  sx={{
-                    color: "var(--color-text)",
-                  }}
-                >
-                  Backend developer
-                </Typography>
-                <Typography
-                  variant="h5"
-                  className="test"
-                  fontWeight={300}
-                  component="div"
-                  borderWidth="5px"
-                  sx={{
-                    color: "var(--color-text)",
-                  }}
-                >
-                  I have experience in building full scale optimised back end
-                  systems using a variety of tools and programming languages
-                </Typography>
-              </Box>
-            </Box>
-            <Box
-              display="flex"
-              flexDirection="row"
-              alignItems="center"
-              sx={{
-                borderRadius: "10px",
-                backgroundImage:
-                  "linear-gradient(90deg, rgba(165, 215, 232, 0.42) 0%, rgba(255, 255, 255, 0) 100%)",
-                backgroundSize: "0 100%",
-                backgroundRepeat: "no-repeat",
-                transition: "background-size 0.4s",
-                "&:hover": {
-                  backgroundSize: "100% 100%",
-                },
-              }}
-              mr={1}
-            >
-              <ColorLensIcon
-                fontSize="large"
-                sx={{ color: "rgba(16, 167, 240)" }}
-              />
-              <Box display="flex" flexDirection="column">
-                <Typography
-                  variant="h4"
-                  className="test"
-                  fontWeight={500}
-                  component="div"
-                  borderWidth="5px"
-                  sx={{
-                    color: "var(--color-text)",
-                  }}
-                >
-                  UI designer
-                </Typography>
-                <Typography
-                  variant="h5"
-                  className="test"
-                  fontWeight={300}
-                  component="div"
-                  borderWidth="5px"
-                  sx={{
-                    color: "var(--color-text)",
-                  }}
-                >
-                  I have experience with designing multiple web-based landing
-                  pages as well as app based UI
-                </Typography>
-              </Box>
-            </Box>
+            />
+          </Box>
+
+          {/* Skills Cards */}
+          <Box
+            sx={{
+              flex: 1,
+              display: "flex",
+              flexDirection: "column",
+              gap: 3,
+              order: { xs: 2, lg: 1 },
+            }}
+          >
+            {skills.map((skill, index) => (
+              <Card
+                key={index}
+                sx={{
+                  backgroundColor: "var(--color-surface)",
+                  border: "1px solid var(--color-border)",
+                  borderRadius: "var(--radius-lg)",
+                  transition: "var(--transition-normal)",
+                  "&:hover": {
+                    backgroundColor: "var(--color-surface-elevated)",
+                    borderColor: "var(--color-border-light)",
+                    transform: "translateY(-2px)",
+                    boxShadow: "var(--shadow-md)",
+                  },
+                }}
+              >
+                <CardContent sx={{ padding: "2rem" }}>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      alignItems: "flex-start",
+                      gap: 2,
+                    }}
+                  >
+                    <Box
+                      sx={{
+                        padding: "0.75rem",
+                        backgroundColor: "var(--color-surface-elevated)",
+                        borderRadius: "var(--radius-md)",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        flexShrink: 0,
+                      }}
+                    >
+                      {skill.icon}
+                    </Box>
+                    <Box sx={{ flex: 1 }}>
+                      <Typography
+                        variant="h6"
+                        sx={{
+                          color: "var(--color-text)",
+                          fontWeight: 600,
+                          marginBottom: 1,
+                          fontSize: "1.125rem",
+                        }}
+                      >
+                        {skill.title}
+                      </Typography>
+                      <Typography
+                        variant="body2"
+                        sx={{
+                          color: "var(--color-text-secondary)",
+                          lineHeight: 1.6,
+                          fontSize: "0.95rem",
+                        }}
+                      >
+                        {skill.description}
+                      </Typography>
+                    </Box>
+                  </Box>
+                </CardContent>
+              </Card>
+            ))}
           </Box>
         </Box>
       </Box>

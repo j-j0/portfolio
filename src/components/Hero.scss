@@ -1,27 +1,32 @@
-@keyframes breathing {
-  0%,
-  100% {
-    transform: scale(1);
+@keyframes subtle-float {
+  0%, 100% {
+    transform: translateY(0px);
   }
   50% {
-    transform: scale(1.99);
+    transform: translateY(-8px);
   }
 }
 
-@keyframes floating {
-  0% {
-    transform: translateY(0);
+@keyframes subtle-glow {
+  0%, 100% {
+    box-shadow: 
+      0 0 20px rgba(59, 130, 246, 0.2),
+      0 0 40px rgba(59, 130, 246, 0.1),
+      0 8px 32px rgba(0, 0, 0, 0.3);
   }
   50% {
-    transform: translateY(-28px);
-  }
-  100% {
-    transform: translateY(0);
+    box-shadow: 
+      0 0 30px rgba(59, 130, 246, 0.3),
+      0 0 60px rgba(59, 130, 246, 0.15),
+      0 12px 40px rgba(0, 0, 0, 0.4);
   }
 }
 
 .avatar {
-  animation: breathing 2s ease-in-out infinite, floating 4s ease-in-out infinite;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 0 6px 20px rgba(0, 0, 0, 0.3),
-    0 8px 30px rgba(0, 0, 0, 0.4);
+  animation: subtle-float 6s ease-in-out infinite, subtle-glow 4s ease-in-out infinite;
+  transition: transform 0.3s ease;
+  
+  &:hover {
+    transform: scale(1.05) translateY(-4px);
+  }
 }

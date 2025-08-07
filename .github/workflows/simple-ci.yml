@@ -1,0 +1,49 @@
+# Simple GitHub Actions CI for Beginners
+# This is a basic version to get you started
+
+name: Simple CI
+
+# Run on push to main branch and pull requests
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  # Single job that does everything
+  build-and-test:
+    name: Build and Test
+    runs-on: ubuntu-latest
+    
+    steps:
+    # Get your code
+    - name: Get code from repository
+      uses: actions/checkout@v4
+    
+    # Setup Node.js
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '22.3.0'
+        cache: 'npm'
+    
+    # Install dependencies
+    - name: Install packages
+      run: npm install
+    
+    # Run tests
+    - name: Run tests
+      run: npm test -- --watchAll=false
+      env:
+        CI: true
+    
+    # Build the app
+    - name: Build React app
+      run: npm run build
+    
+    # Test Docker build
+    - name: Test Docker build
+      run: |
+        docker build -t my-portfolio .
+        echo "✅ Docker build successful!"

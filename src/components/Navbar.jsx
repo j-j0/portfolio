@@ -10,113 +10,171 @@ import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
-import "../vars.css";
 import { useMediaQuery } from "@mui/material";
-
-require("react-dom");
-window.React2 = require("react");
-console.log("printing HERE:");
-console.log(window.React1 === window.React2);
+import { Link } from "react-scroll";
+import "../vars.css";
 
 function Navbar() {
   const [drawerOpen, setDrawerOpen] = React.useState(false);
-  const isMobile = useMediaQuery("(max-width: 600px)");
+  const isMobile = useMediaQuery("(max-width: 768px)");
 
   const handleDrawerToggle = () => {
     setDrawerOpen(!drawerOpen);
   };
+
+  const navItems = [
+    { label: "About", to: "about" },
+    { label: "Experience", to: "experience" },
+    { label: "Projects", to: "projects" },
+    { label: "Contact", to: "contact" },
+  ];
+
   return (
-    <>
-      <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="static" sx={{ backgroundColor: "var(--color-bg)" }}>
-          <Toolbar
+    <AppBar 
+      position="fixed" 
+      elevation={0}
+      sx={{ 
+        backgroundColor: "rgba(10, 10, 10, 0.95)",
+        backdropFilter: "blur(10px)",
+        borderBottom: "1px solid var(--color-border)",
+      }}
+    >
+      <Toolbar
+        sx={{
+          maxWidth: "1200px",
+          width: "100%",
+          margin: "0 auto",
+          padding: { xs: "0 1rem", md: "0 2rem" },
+          height: "70px",
+        }}
+      >
+        <Typography
+          variant="h5"
+          component="div"
+          sx={{
+            fontWeight: 700,
+            color: "var(--color-text)",
+            fontSize: { xs: "1.25rem", md: "1.5rem" },
+            letterSpacing: "-0.025em",
+          }}
+        >
+          Jack Wang
+        </Typography>
+
+        <Box sx={{ flexGrow: 1 }} />
+
+        {isMobile ? (
+          <IconButton
+            color="inherit"
+            aria-label="menu"
+            onClick={handleDrawerToggle}
             sx={{
-              gap: 2,
-              marginTop: "23px",
-              display: "flex",
-              justifyContent: "space-between",
-              flexDirection: "row",
-              padding: 2,
+              color: "var(--color-text)",
+              "&:hover": {
+                backgroundColor: "var(--color-surface-elevated)",
+              },
             }}
           >
-            <Typography
-              className="title"
-              variant="h4"
-              fontWeight={600}
-              component="div"
-              sx={{ color: "var(--color-text)" }}
-            >
-              Portfolio
-            </Typography>
-            {isMobile ? (
-              <IconButton
-                edge="start"
-                color="inherit"
-                aria-label="menu"
-                onClick={handleDrawerToggle}
+            <MenuIcon />
+          </IconButton>
+        ) : (
+          <Box sx={{ display: "flex", gap: 1 }}>
+            {navItems.map((item) => (
+              <Link
+                key={item.to}
+                to={item.to}
+                spy={true}
+                smooth={true}
+                offset={-70}
+                duration={500}
+                style={{ textDecoration: "none" }}
               >
-                <MenuIcon />
-              </IconButton>
-            ) : (
-              <Box>
                 <Button
-                  className="about-me"
-                  sx={{ color: "var(--color-text)" }}
+                  sx={{
+                    color: "var(--color-text-secondary)",
+                    fontWeight: 500,
+                    fontSize: "0.95rem",
+                    textTransform: "none",
+                    padding: "8px 16px",
+                    borderRadius: "var(--radius-md)",
+                    transition: "var(--transition-normal)",
+                    "&:hover": {
+                      color: "var(--color-text)",
+                      backgroundColor: "var(--color-surface-elevated)",
+                    },
+                  }}
                 >
-                  About me
+                  {item.label}
                 </Button>
-                <Button
-                  className="contact-me"
-                  sx={{ color: "var(--color-text)" }}
-                >
-                  Contact me
-                </Button>
-                <Button
-                  className="projects"
-                  sx={{ color: "var(--color-text)" }}
-                >
-                  Projects
-                </Button>
-                <Button
-                  className="experience"
-                  sx={{ color: "var(--color-text)" }}
-                >
-                  Experience
-                </Button>
-              </Box>
-            )}
-          </Toolbar>
-        </AppBar>
+              </Link>
+            ))}
+          </Box>
+        )}
+
         <Drawer
           anchor="right"
           open={drawerOpen}
           onClose={handleDrawerToggle}
           PaperProps={{
             sx: {
-              background:
-                "linear-gradient(90deg, rgba(35, 65, 100, 0.9) 0%, rgba(25, 55, 109, 1) 100%)",
-              borderTopLeftRadius: 10,
-              borderBottomLeftRadius: 10,
+              backgroundColor: "var(--color-surface)",
+              borderLeft: "1px solid var(--color-border)",
+              width: 280,
             },
           }}
         >
-          <List sx={{ width: 250, color: "var(--color-text)" }}>
-            <ListItem button onClick={handleDrawerToggle}>
-              <ListItemText primary="About me" />
-            </ListItem>
-            <ListItem button onClick={handleDrawerToggle}>
-              <ListItemText primary="Contact me" />
-            </ListItem>
-            <ListItem button onClick={handleDrawerToggle}>
-              <ListItemText primary="Projects" />
-            </ListItem>
-            <ListItem button onClick={handleDrawerToggle}>
-              <ListItemText primary="Experience" />
-            </ListItem>
-          </List>
+          <Box sx={{ padding: "2rem 0" }}>
+            <Typography
+              variant="h6"
+              sx={{
+                color: "var(--color-text)",
+                fontWeight: 600,
+                padding: "0 2rem 1rem",
+                borderBottom: "1px solid var(--color-border)",
+                marginBottom: "1rem",
+              }}
+            >
+              Navigation
+            </Typography>
+            <List>
+              {navItems.map((item) => (
+                <Link
+                  key={item.to}
+                  to={item.to}
+                  spy={true}
+                  smooth={true}
+                  offset={-70}
+                  duration={500}
+                  style={{ textDecoration: "none" }}
+                >
+                  <ListItem 
+                    button 
+                    onClick={handleDrawerToggle}
+                    sx={{
+                      margin: "0 1rem",
+                      borderRadius: "var(--radius-md)",
+                      "&:hover": {
+                        backgroundColor: "var(--color-surface-elevated)",
+                      },
+                    }}
+                  >
+                    <ListItemText 
+                      primary={item.label}
+                      sx={{
+                        "& .MuiListItemText-primary": {
+                          color: "var(--color-text-secondary)",
+                          fontWeight: 500,
+                        },
+                      }}
+                    />
+                  </ListItem>
+                </Link>
+              ))}
+            </List>
+          </Box>
         </Drawer>
-      </Box>
-    </>
+      </Toolbar>
+    </AppBar>
   );
 }
 

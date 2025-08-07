@@ -1,247 +1,332 @@
 import React from "react";
-import { Typography, Box, useMediaQuery, Avatar } from "@mui/material";
-import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
+import { Typography, Box, useMediaQuery, Avatar, Card, CardContent, Chip } from "@mui/material";
+import { Work, CheckCircle } from "@mui/icons-material";
 import "../vars.css";
 
 const Experience = () => {
-  const isMobile = useMediaQuery("(max-width:600px)");
+  const isMobile = useMediaQuery("(max-width: 768px)");
+
+  const frontendSkills = [
+    { name: "HTML", logo: require("../pictures/html.png") },
+    { name: "CSS", logo: require("../pictures/css.png") },
+    { name: "JavaScript", logo: require("../pictures/javascript.svg") },
+    { name: "React", logo: require("../pictures/react.png") },
+    { name: "Material-UI", logo: require("../pictures/material-ui.svg") },
+    { name: "SASS", logo: require("../pictures/sass.svg") }
+  ];
+
+  const backendSkills = [
+    { name: "Java", logo: require("../pictures/java.png") },
+    { name: "SQL", logo: require("../pictures/sql.svg") },
+    { name: "Express.js", logo: require("../pictures/express.svg") },
+    { name: "Node.js", logo: require("../pictures/node.png") },
+    { name: "Rust", logo: require("../pictures/rust.png") },
+    { name: "MongoDB", logo: require("../pictures/mongodb.png") }
+  ];
+
   return (
     <section id="experience">
       <Box
-        className="about"
         sx={{
-          marginLeft: "10%",
-          marginRight: "10%",
-          marginTop: "43px",
-          padding: 2,
+          maxWidth: "1200px",
+          margin: "0 auto",
+          padding: { xs: "4rem 1rem", md: "6rem 2rem" },
         }}
       >
-        <Typography
-          variant="h3"
-          className="hero-title"
-          fontWeight={400}
-          component="div"
-          sx={{
-            color: "var(--color-text)",
-          }}
-        >
-          Experience
-        </Typography>
-        <Box
-          display="flex"
-          flexDirection={isMobile ? "column" : "row"}
-          alignItems="center"
-          justifyContent="flex-start"
-          mt={2}
-          mb={4}
-          sx={{
-            padding: 2,
-            borderRadius: "15px",
-            background:
-              "linear-gradient(90deg, #19376d 0%, rgba(25, 55, 109, 0) 100%)",
-          }}
-        >
-          <Avatar
-            alt="Quick-site Guru"
-            src={require("../pictures/quicksite_guru_logo.jpeg")}
-            className="quicksite"
+        <Box sx={{ textAlign: "center", marginBottom: 6 }}>
+          <Typography
+            variant="h2"
             sx={{
-              width: isMobile ? 150 : 100,
-              height: isMobile ? 150 : 100,
-              margin: isMobile ? "30px auto 0" : "30",
-              marginRight: "30px",
-            }}
-          />
-          <Box>
-            <Typography
-              variant="h5"
-              component="div"
-              sx={{
-                color: "var(--color-text)",
-                fontWeight: 500,
-              }}
-            >
-              Web Development Intern at QuickSite Guru
-            </Typography>
-            <Typography
-              variant="subtitle1"
-              component="div"
-              sx={{
-                color: "grey",
-                fontWeight: 300,
-                marginBottom: 1,
-              }}
-            >
-              May 2024 to Present
-            </Typography>
-            <ul>
-              <li>
-                <Typography
-                  variant="body1"
-                  component="div"
-                  sx={{
-                    color: "var(--color-text)",
-                  }}
-                >
-                  Developed web pages using React, JavaScript, HTML, and CSS.
-                </Typography>
-              </li>
-              <li>
-                <Typography
-                  variant="body1"
-                  component="div"
-                  sx={{
-                    color: "var(--color-text)",
-                  }}
-                >
-                  Learned from a mentor to improve coding skills and best
-                  practices.
-                </Typography>
-              </li>
-              <li>
-                <Typography
-                  variant="body1"
-                  component="div"
-                  sx={{
-                    color: "var(--color-text)",
-                  }}
-                >
-                  Assisted in hosting and deploying websites.
-                </Typography>
-              </li>
-            </ul>
-          </Box>
-        </Box>
-        <Box
-          className="experience-main"
-          display="flex"
-          alignItems="center"
-          justifyContent="space-between"
-          flexDirection={isMobile ? "column" : "row"}
-          gap={isMobile ? 5 : 3}
-        >
-          <Box
-            display="flex"
-            className="exp-box"
-            flexGrow="1"
-            justifyContent="center"
-            alignItems="center"
-            flexDirection="column"
-            width={isMobile ? "100%" : "50%"}
-            gap={isMobile ? "25px" : "40px"}
-            paddingRight={isMobile ? 0 : 1}
-            sx={{
-              borderRadius: "10px",
-              borderStyle: "solid",
+              fontSize: { xs: "2rem", md: "2.5rem" },
+              fontWeight: 700,
+              color: "var(--color-text)",
+              marginBottom: 2,
+              letterSpacing: "-0.025em",
             }}
           >
-            <Typography
-              variant="h4"
-              className="Front-end-title"
-              fontWeight={500}
-              component="div"
+            Experience & Skills
+          </Typography>
+          <Typography
+            variant="body1"
+            sx={{
+              fontSize: "1.125rem",
+              color: "var(--color-text-secondary)",
+              maxWidth: "600px",
+              margin: "0 auto",
+              lineHeight: 1.6,
+            }}
+          >
+            My professional journey and technical expertise in modern web development.
+          </Typography>
+        </Box>
+
+        {/* Work Experience */}
+        <Card
+          sx={{
+            backgroundColor: "var(--color-surface)",
+            border: "1px solid var(--color-border)",
+            borderRadius: "var(--radius-lg)",
+            marginBottom: 6,
+            overflow: "visible",
+          }}
+        >
+          <CardContent sx={{ padding: { xs: "2rem", md: "3rem" } }}>
+            <Box
               sx={{
-                color: "lightgrey",
-                paddingLeft: isMobile ? 4 : 0,
-                pt: isMobile ? 3 : 2,
+                display: "flex",
+                flexDirection: { xs: "column", md: "row" },
+                alignItems: { xs: "center", md: "flex-start" },
+                gap: 3,
+                textAlign: { xs: "center", md: "left" },
               }}
             >
-              Frontend development
-            </Typography>
-            <Box
-              display="flex"
-              flexDirection="row"
-              justifyContent="center"
-              alignItems="center"
-              pl={isMobile ? 2 : 0}
-              flexWrap="wrap"
-            >
-              {[
-                "HTML",
-                "CSS",
-                "Javascript",
-                "React",
-                "Material-UI",
-                "SASS",
-              ].map((item, index) => (
+              <Avatar
+                src={require("../pictures/quicksite_guru_logo.jpeg")}
+                alt="QuickSite Guru"
+                sx={{
+                  width: { xs: 80, md: 100 },
+                  height: { xs: 80, md: 100 },
+                  border: "3px solid var(--color-border)",
+                  boxShadow: "var(--shadow-md)",
+                }}
+              />
+
+              <Box sx={{ flex: 1 }}>
                 <Box
-                  key={index}
-                  display="flex"
-                  flexDirection="row"
-                  alignItems="center"
-                  sx={{ width: isMobile ? "100%" : "45%" }}
-                  mb={2}
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 1,
+                    marginBottom: 1,
+                    justifyContent: { xs: "center", md: "flex-start" },
+                  }}
                 >
-                  <CheckCircleOutlineIcon />
+                  <Work sx={{ color: "var(--color-primary)", fontSize: "1.25rem" }} />
                   <Typography
-                    variant="h6"
-                    className="hero-subtitle"
-                    sx={{ color: "var(--color-text)", padding: "10px" }}
+                    variant="h5"
+                    sx={{
+                      color: "var(--color-text)",
+                      fontWeight: 600,
+                      fontSize: { xs: "1.25rem", md: "1.5rem" },
+                    }}
                   >
-                    {item}
+                    Web Development Intern
                   </Typography>
                 </Box>
-              ))}
+
+                <Typography
+                  variant="h6"
+                  sx={{
+                    color: "var(--color-primary)",
+                    fontWeight: 500,
+                    marginBottom: 1,
+                  }}
+                >
+                  QuickSite Guru
+                </Typography>
+
+                <Chip
+                  label="May 2024 - Present"
+                  variant="outlined"
+                  sx={{
+                    color: "var(--color-text-secondary)",
+                    borderColor: "var(--color-border-light)",
+                    marginBottom: 3,
+                  }}
+                />
+
+                <Box sx={{ display: "flex", flexDirection: "column", gap: 1.5 }}>
+                  {[
+                    "Developed responsive web applications using React, JavaScript, HTML, and CSS",
+                    "Collaborated with senior developers to implement best practices and coding standards",
+                    "Assisted in website deployment and hosting processes"
+                  ].map((achievement, index) => (
+                    <Box
+                      key={index}
+                      sx={{
+                        display: "flex",
+                        alignItems: "flex-start",
+                        gap: 1,
+                      }}
+                    >
+                      <CheckCircle
+                        sx={{
+                          color: "var(--color-success)",
+                          fontSize: "1.25rem",
+                          marginTop: "2px",
+                          flexShrink: 0,
+                        }}
+                      />
+                      <Typography
+                        variant="body1"
+                        sx={{
+                          color: "var(--color-text-secondary)",
+                          lineHeight: 1.6,
+                        }}
+                      >
+                        {achievement}
+                      </Typography>
+                    </Box>
+                  ))}
+                </Box>
+              </Box>
             </Box>
-          </Box>
-          <Box
-            display="flex"
-            className="exp-box"
-            flexGrow="1"
-            justifyContent="center"
-            alignItems="center"
-            flexDirection="column"
-            gap={isMobile ? "25px" : "40px"}
-            width={isMobile ? "100%" : "50%"}
-            paddingRight={isMobile ? 0 : 1}
+          </CardContent>
+        </Card>
+
+        {/* Technical Skills */}
+        <Box
+          sx={{
+            display: "grid",
+            gridTemplateColumns: { xs: "1fr", md: "1fr 1fr" },
+            gap: 4,
+          }}
+        >
+          {/* Frontend Skills */}
+          <Card
             sx={{
-              borderStyle: "solid",
-              borderRadius: "10px",
+              backgroundColor: "var(--color-surface)",
+              border: "1px solid var(--color-border)",
+              borderRadius: "var(--radius-lg)",
+              transition: "var(--transition-normal)",
+              "&:hover": {
+                borderColor: "var(--color-primary)",
+                boxShadow: "var(--shadow-md)",
+              },
             }}
           >
-            <Typography
-              variant="h4"
-              className="Front-end-title"
-              fontWeight={500}
-              component="div"
-              sx={{
-                color: "lightgrey",
-                paddingLeft: isMobile ? 5 : 0,
-                pt: isMobile ? 3 : 2,
-              }}
-            >
-              Backend development
-            </Typography>
-            <Box
-              display="flex"
-              flexDirection="row"
-              justifyContent="center"
-              flexWrap="wrap"
-              pl={isMobile ? 2 : 0}
-            >
-              {["Java", "SQL", "Express Js", "Node Js", "Rust", "MongoDb"].map(
-                (item, index) => (
-                  <Box
+            <CardContent sx={{ padding: "2rem" }}>
+              <Typography
+                variant="h5"
+                sx={{
+                  color: "var(--color-text)",
+                  fontWeight: 600,
+                  marginBottom: 3,
+                  textAlign: "center",
+                }}
+              >
+                Frontend Development
+              </Typography>
+
+              <Box
+                sx={{
+                  display: "flex",
+                  flexWrap: "wrap",
+                  gap: 1.5,
+                  justifyContent: "center",
+                }}
+              >
+                {frontendSkills.map((skill, index) => (
+                  <Chip
                     key={index}
-                    display="flex"
-                    flexDirection="row"
-                    alignItems="center"
-                    sx={{ width: isMobile ? "100%" : "45%" }}
-                    mb={2}
-                  >
-                    <CheckCircleOutlineIcon />
-                    <Typography
-                      variant="h6"
-                      className="hero-subtitle"
-                      sx={{ color: "var(--color-text)", padding: "10px" }}
-                    >
-                      {item}
-                    </Typography>
-                  </Box>
-                )
-              )}
-            </Box>
-          </Box>
+                    icon={skill.logo ? (
+                      <Box
+                        component="img"
+                        src={skill.logo}
+                        alt={skill.name}
+                        sx={{
+                          width: 20,
+                          height: 20,
+                          objectFit: "contain",
+                        }}
+                      />
+                    ) : undefined}
+                    label={skill.name}
+                    sx={{
+                      backgroundColor: "var(--color-surface-elevated)",
+                      color: "var(--color-text)",
+                      border: "1px solid var(--color-border-light)",
+                      padding: skill.logo ? "0.5rem 1rem" : "0.5rem 1rem",
+                      "& .MuiChip-icon": {
+                        marginLeft: "8px",
+                        marginRight: "-4px",
+                      },
+                      "&:hover": {
+                        backgroundColor: "var(--color-primary)",
+                        color: "white",
+                        transform: "translateY(-2px)",
+                        boxShadow: "var(--shadow-sm)",
+                      },
+                      transition: "var(--transition-normal)",
+                    }}
+                  />
+                ))}
+              </Box>
+            </CardContent>
+          </Card>
+
+          {/* Backend Skills */}
+          <Card
+            sx={{
+              backgroundColor: "var(--color-surface)",
+              border: "1px solid var(--color-border)",
+              borderRadius: "var(--radius-lg)",
+              transition: "var(--transition-normal)",
+              "&:hover": {
+                borderColor: "var(--color-accent)",
+                boxShadow: "var(--shadow-md)",
+              },
+            }}
+          >
+            <CardContent sx={{ padding: "2rem" }}>
+              <Typography
+                variant="h5"
+                sx={{
+                  color: "var(--color-text)",
+                  fontWeight: 600,
+                  marginBottom: 3,
+                  textAlign: "center",
+                }}
+              >
+                Backend Development
+              </Typography>
+
+              <Box
+                sx={{
+                  display: "flex",
+                  flexWrap: "wrap",
+                  gap: 1.5,
+                  justifyContent: "center",
+                }}
+              >
+                {backendSkills.map((skill, index) => (
+                  <Chip
+                    key={index}
+                    icon={skill.logo ? (
+                      <Box
+                        component="img"
+                        src={skill.logo}
+                        alt={skill.name}
+                        sx={{
+                          width: 20,
+                          height: 20,
+                          objectFit: "contain",
+                        }}
+                      />
+                    ) : undefined}
+                    label={skill.name}
+                    sx={{
+                      backgroundColor: "var(--color-surface-elevated)",
+                      color: "var(--color-text)",
+                      border: "1px solid var(--color-border-light)",
+                      padding: skill.logo ? "0.5rem 1rem" : "0.5rem 1rem",
+                      "& .MuiChip-icon": {
+                        marginLeft: "8px",
+                        marginRight: "-4px",
+                      },
+                      "&:hover": {
+                        backgroundColor: "var(--color-accent)",
+                        color: "white",
+                        transform: "translateY(-2px)",
+                        boxShadow: "var(--shadow-sm)",
+                      },
+                      transition: "var(--transition-normal)",
+                    }}
+                  />
+                ))}
+              </Box>
+            </CardContent>
+          </Card>
         </Box>
       </Box>
     </section>

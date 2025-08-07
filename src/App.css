@@ -1,18 +1,52 @@
 @import "./vars.css";
 
-.App {
-  text-align: center;
-  background-color: var(--color-bg);
+* {
+  box-sizing: border-box;
 }
-.body {
-  background-color: var(--color-bg);
+
+html {
+  scroll-behavior: smooth;
 }
-html,
-body,
-#root,
-.App {
-  height: 100%;
+
+body {
   margin: 0;
+  padding: 0;
+  font-family: var(--font-primary);
   background-color: var(--color-bg);
-  color: var(--color-text); /* Optional: to ensure text color is also applied */
+  color: var(--color-text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.app {
+  background-color: var(--color-bg);
+  min-height: 100vh;
+}
+
+/* Smooth scrolling for anchor links */
+section {
+  scroll-margin-top: 80px;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-surface);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border-light);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-muted);
 }
